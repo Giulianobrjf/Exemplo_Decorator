@@ -1,7 +1,8 @@
 package org.example;
 
-public interface Lavagem {
-        String getDescricaoServico();
-        float getValor();
+public interface Lavagem{
+
+        float getValorTotalLavagem();
+        String getServico();
 
 }

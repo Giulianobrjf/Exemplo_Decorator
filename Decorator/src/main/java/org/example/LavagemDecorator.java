@@ -3,7 +3,7 @@ package org.example;
 public abstract class LavagemDecorator implements Lavagem{
 
     private Lavagem lavagem;
-    public String descricaoServico;
+    public String servico;
 
     public LavagemDecorator(Lavagem lavagem) {
         this.lavagem = lavagem;
@@ -17,13 +17,19 @@ public abstract class LavagemDecorator implements Lavagem{
         this.lavagem = lavagem;
     }
 
-    public abstract String getDescricaoServico();
-
-    public String getEstrutura() {
-        return this.lavagem.getDescricaoServico() + "," + this.getDescricaoServico();
+    public abstract float getValor();
+    @Override
+    public float getValorTotalLavagem() {
+        return this.lavagem.getValorTotalLavagem()  + (this.getValor());
     }
 
-    public void setEstrutura(String estrutura) {
-        this.estrutura = estrutura;
+    public abstract String getNomeServico();
+    @Override
+    public String getServico() {
+        return this.lavagem.getServico() + "/" + this.getNomeServico();
+    }
+
+    public void setServico(String servico){
+        this.servico = servico;
     }
 }
